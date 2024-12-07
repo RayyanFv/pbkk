@@ -1,0 +1,41 @@
+# Go binary
+/bin/
+/obj/
+
+# Go module cache
+/go/pkg/
+/go/bin/
+
+# Go executable files
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Vendor directory
+/vendor/
+
+# Database files
+*.db
+*.sqlite
+
+# Logs
+*.log
+
+# IDE and editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System-specific files
+.DS_Store
+Thumbs.db
+
+# dotenv file
+.env
+
+# Other temporary or backup files
+*.bak
+*.tmp
