@@ -18,12 +18,25 @@ type TransactionItem struct {
 }
 
 // Transaction represents a transaction in the POS system.
+// type Transaction struct {
+// 	ID               uint              `json:"id" gorm:"primaryKey"`
+// 	CustomerID       uint              `json:"customer_id"`
+// 	TotalAmount      float64           `json:"total_amount"`
+// 	TransactionItems []TransactionItem `json:"items" gorm:"foreignKey:TransactionID"` // One-to-many relationship with TransactionItem
+// 	CreatedAt        time.Time         `json:"created_at"`
+// 	UpdatedAt        time.Time         `json:"updated_at"`
+// 	DeletedAt        gorm.DeletedAt    `json:"deleted_at,omitempty"`
+// }
+
 type Transaction struct {
-	ID               uint              `json:"id" gorm:"primaryKey"`
-	CustomerID       uint              `json:"customer_id"`
-	TotalAmount      float64           `json:"total_amount"`
-	TransactionItems []TransactionItem `json:"items" gorm:"foreignKey:TransactionID"` // One-to-many relationship with TransactionItem
-	CreatedAt        time.Time         `json:"created_at"`
-	UpdatedAt        time.Time         `json:"updated_at"`
-	DeletedAt        gorm.DeletedAt    `json:"deleted_at,omitempty"`
+	ID          uint           `json:"id" gorm:"primaryKey"`
+	CustomerID  uint           `json:"customer_id"`
+	TotalAmount float64        `json:"total_amount"`
+	CreatedAt   time.Time      `json:"created_at"`
+	UpdatedAt   time.Time      `json:"updated_at"`
+	DeletedAt   gorm.DeletedAt `json:"deleted_at,omitempty"`
+}
+
+func (TransactionItem) TableName() string {
+	return "transaction_item" // Sesuaikan dengan nama tabel yang ada di database
 }
